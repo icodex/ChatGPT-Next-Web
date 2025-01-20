@@ -6,9 +6,8 @@ import { getClientConfig } from "./config/client";
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { getServerSideConfig } from "./config/server";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
-const serverConfig = getServerSideConfig();
+import { getServerSideConfig } from "./config/server";
 
 export const metadata: Metadata = {
   title: "NextChat",
@@ -34,6 +33,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const serverConfig = getServerSideConfig();
+
   return (
     <html lang="en">
       <head>
